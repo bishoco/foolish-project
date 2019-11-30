@@ -21,8 +21,7 @@ We would like to thank you for taking the time to complete this project. We will
 ### Article Page
 * Use content_api.json and quotes_api.json to populate the details for the individual article page.
 * Use a URL schema that makes sense to you.
-* Create a button below the Stock Quotes sidebar that, when clicked, will use javascript to shuffle the order of the stock quote 
-items.
+* Create a button below the Stock Quotes sidebar that, when clicked, will use javascript to shuffle the order of the stock quote items.
 * Ability to add comments at the bottom of an article by anonymous users.
 
 ### Evaluation criteria
