@@ -5,10 +5,10 @@
     <div class="jumbotron">
       <div class="row">
         <div class="col-md-6">
-          <img class="img-fluid" src="{{ main_article.images.url }}">
+          <img class="img-fluid" src="{{ main_article.image_url }}">
         </div>
         <div class="col-md-6">
-            <h2>{{ main_article.headline }}</h2>
+            <h3><a href="{% url 'detail' main_article.uuid %}">{{ main_article.headline }}</a></h3>
             <p><b>{{ main_article.byline }} | {{ main_article.publish_at }}</b></p>
             <p>{{ main_article.promo }}</p>
         </div>
@@ -20,8 +20,8 @@
       <div class="row">
         {% for article in sub_article_list %}
           <div class="col-md-4">
-              <img class="img-fluid" src="{{ article.images.url }}">
-              <h2>{{ article.headline }}</h2>
+              <div style="height: 300px"><img class="img-fluid" src="{{ article.image_url }}"></div>
+              <h4>{{ article.headline }}</h4>
               <p>{{ article.promo }}</p>
           </div>
         {% endfor %}
