@@ -10,4 +10,4 @@ class Article(models.Model):
     headline = models.TextField()
     publish_at = models.DateTimeField('date published')
     byline = models.CharField(max_length=200)
-    image_url = models.ImageField()
+    image_url = models.CharField(max_length=200)
