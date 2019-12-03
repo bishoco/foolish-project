@@ -3,16 +3,38 @@
 {% block content %}
     <div class="container">
         <div class="row">
-            
           <div class="col-md-9">
             <h2>{{ article.headline }}</h2>            
             <p><b>{{ article.byline }} | {{ article.publish_at|date }}</b></p>
             <p> {{ article.body|safe }}</p>
+            <hr>
           </div>
           
           <div class="col-md-3">
             {% include "articles/stock.html" %} 
           </div>
         </div>
+        
+        <div class="row">
+            <div class="col-md-6">
+                <form action="{% url 'articles:comment' article.uuid %}" method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="comment_text">Enter Comment</label>
+                        <textarea class="form-control" id="comment_text" name="comment_text" rows="3"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+        
+        {% for comment in comment_list %}
+            <div class="row">
+                <div class="col-md-6">
+                    <div> {{ comment.comment_date|date:'m-d-Y g:i a' }}</div>
+                    <div> {{ comment.comment_text }}</div>
+                </div>
+            </div>
+        {% endfor %}
     </div> 
 {% endblock content %}

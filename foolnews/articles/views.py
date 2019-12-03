@@ -1,13 +1,17 @@
-from django.shortcuts import render
+from datetime import datetime
 import random
 
-from .models import Article
+from django.shortcuts import render, get_object_or_404
+from django.http import HttpResponse, HttpResponseRedirect
+from django.urls import reverse
+from django.utils.html import strip_tags
+
+from .models import Article, Comment
 from .utils import *
-from datetime import datetime
 
 def index(request):
     slug = "10-promise" #move this slug to db config table
-    sub_article_count = 3
+    sub_article_count = 3 #number of articles listed at the bottom of the main page
 
     article_list = get_articles_from_api()
     main_article = get_main_article (article_list, slug);
@@ -26,8 +30,21 @@ def detail(request, uuid):
     stock_list = get_stocks_from_api()
     stock_list = filter_stock_list_by_instruments(stock_list, instruments)
 
-    context = {'article': article, "stock_list": stock_list}
+    comment_list = Comment.objects.filter(article_uuid=uuid).order_by('-comment_date')
+    print(comment_list)
+
+    context = {'article': article, "stock_list": stock_list, "comment_list": comment_list}
     return render(request, 'articles/detail.html', context)
+
+def comment(request, uuid):
+    comment = Comment(
+        article_uuid = uuid,
+        # Added strip tags to prevent people injecting HTML
+        comment_text = strip_tags(request.POST['comment_text'])
+    )
+    comment.save()
+    return HttpResponseRedirect(reverse('articles:detail', args=(uuid,)))
+
 
 
 

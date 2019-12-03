@@ -81,8 +81,6 @@ def filter_stock_list_by_instruments(stock_list, instruments):
     filtered_stock_list = []
     for instrument in instruments:
         for stock in stock_list:
-            print(instrument.get("symbol"))
-            print(stock.get("Symbol"))
             if (instrument.get("symbol") == stock.get("Symbol")):
                 filtered_stock_list.append(stock)
                 break
