@@ -1,0 +1,8 @@
+{% load humanize %}
+<hr>
+<h3>Stocks</h3>
+{% for stock in stock_list %}
+<b>{{ stock.CompanyName }}</b>
+<div>{{ stock.Exchange }}:{{ stock.Symbol }}</div>
+<div>${{ stock.CurrentPrice.Amount|floatformat:2|intcomma }} ${{ stock.Change.Amount|floatformat:2|intcomma }} ( {{ stock.PercentChange.Value|floatformat:2}}%)</div>
+{% endfor %}

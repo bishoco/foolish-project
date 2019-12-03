@@ -1,4 +1,5 @@
 from django.shortcuts import render
+import random
 
 from .models import Article
 from .utils import *
@@ -15,8 +16,17 @@ def index(request):
     context = {'main_article': main_article, 'sub_article_list': sub_article_list}
     return render(request, 'articles/index.html', context)
 
-def detail(request):
-    context = {}
+def detail(request, uuid):
+    article_list = get_articles_from_api()
+    raw_article = get_article_by_uuid(article_list, uuid)
+    instruments = raw_article.get("instruments")
+    
+    article = convert_raw_article_to_article(raw_article)
+
+    stock_list = get_stocks_from_api()
+    stock_list = filter_stock_list_by_instruments(stock_list, instruments)
+
+    context = {'article': article, "stock_list": stock_list}
     return render(request, 'articles/detail.html', context)
 
 

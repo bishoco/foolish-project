@@ -2,7 +2,17 @@
 
 {% block content %}
     <div class="container">
-     Detail
-
+        <div class="row">
+            
+          <div class="col-md-9">
+            <h2>{{ article.headline }}</h2>            
+            <p><b>{{ article.byline }} | {{ article.publish_at|date }}</b></p>
+            <p> {{ article.body|safe }}</p>
+          </div>
+          
+          <div class="col-md-3">
+            {% include "articles/stock.html" %} 
+          </div>
+        </div>
     </div> 
 {% endblock content %}

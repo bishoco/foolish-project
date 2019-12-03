@@ -49,4 +49,7 @@ class ContentApiTests(TestCase):
         self.assertEquals(article.byline, byline)
         self.assertEquals(article.image_url, image_url)
 
-
+class QuoteApiTests(TestCase):
+    def test_get_stocks_from_api(self):
+        quote_list = get_stocks_from_api()
+        print(quote_list)
