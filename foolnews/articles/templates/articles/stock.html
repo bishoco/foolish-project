@@ -1,8 +1,20 @@
 {% load humanize %}
+{% load static %}
+
+<script src="{% static 'articles/stocks.js' %}"></script>
 <hr>
-<h3>Stocks</h3>
-{% for stock in stock_list %}
-<b>{{ stock.CompanyName }}</b>
-<div>{{ stock.Exchange }}:{{ stock.Symbol }}</div>
-<div>${{ stock.CurrentPrice.Amount|floatformat:2|intcomma }} ${{ stock.Change.Amount|floatformat:2|intcomma }} ( {{ stock.PercentChange.Value|floatformat:2}}%)</div>
-{% endfor %}
+<div class="stock-header">Stocks</div>
+<div id="stock-list-container">
+    {% for stock in stock_list %}
+    <div id="stock-{{forloop.counter}}" class="stock-container">
+        <div class="stock-company">{{ stock.CompanyName }}</div>
+        <div class="stock-info">{{ stock.Exchange }}:{{ stock.Symbol }}</div>
+        <div>${{ stock.CurrentPrice.Amount|floatformat:2|intcomma }} 
+            <span  class="stock-change-{% if stock.Change.Amount < 0 %}down{% else %}up{% endif %}" >
+                ${{ stock.Change.Amount|floatformat:2|intcomma }} ( {{ stock.PercentChange.Value|floatformat:2}}%)
+            </span>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+<button type="button" class="btn btn-secondary btn-sm" onclick="reorderStocks()">Shuffle</button>

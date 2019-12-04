@@ -1,0 +1,66 @@
+.byline {
+    margin-bottom: 4px;
+}
+.promo {
+    font-weight: 600;
+}
+.headline{
+    font-weight: bold;
+    font-size: 24px;
+    margin-bottom: 4px;
+}
+.sub-headline{
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 4px;
+}
+.sub-promo {
+    color:grey;
+}
+.detail-headline{
+    font-weight: bold;
+    font-size: 28px;
+    margin-bottom: 4px;
+}
+.comments-enter{
+    font-weight: bold;
+}
+.comments-header{
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 4px;
+    margin-top: 8px;
+}
+.comments-date {
+    color: gray;
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+.comments-form {
+    display: none;
+    border: rgb(43, 38, 38);
+}
+.stock-header{
+    font-size: 22px;
+    margin-bottom: 4px;
+    color: cornflowerblue;
+    font-weight: 400;
+
+}
+.stock-container {
+    margin-bottom: 8px;
+}
+.stock-company {
+    font-weight: bold;
+    font-size: 18px;
+}
+.stock-info {
+    color: rgb(47, 90, 119);
+    font-weight: bold;
+}
+.stock-change-down {
+    color: red;
+}
+.stock-change-up {
+    color: green;
+}

@@ -52,4 +52,3 @@ class ContentApiTests(TestCase):
 class QuoteApiTests(TestCase):
     def test_get_stocks_from_api(self):
         quote_list = get_stocks_from_api()
-        print(quote_list)

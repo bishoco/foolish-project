@@ -12,8 +12,19 @@ class Article(models.Model):
     byline = models.CharField(max_length=200)
     image_url = models.CharField(max_length=500)
     instruments = models.CharField(max_length=500)
+    def __str__(self):
+        return self.headline
 
 class Comment(models.Model):
     article_uuid = models.CharField(max_length=200)
     comment_text = models.TextField()
     comment_date = models.DateTimeField(auto_now_add=True, blank=True)
+    def __str__(self):
+        return self.comment_text
+
+class ContentConfig(models.Model):
+    key = models.CharField(max_length=200)
+    value = models.CharField(max_length=200)
+    entry_date = models.DateTimeField(auto_now_add=True, blank=True)
+    def __str__(self):
+        return self.key

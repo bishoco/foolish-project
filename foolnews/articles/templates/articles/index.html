@@ -1,16 +1,21 @@
 {% extends "base.html" %}
 
 {% block content %}
+
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'articles/style.css' %}">
+
     <!-- Main Article -->
     <div class="jumbotron">
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-5">
           <img class="img-fluid" src="{{ main_article.image_url }}">
         </div>
         <div class="col-md-6">
-            <h3><a href="/detail/{{ main_article.uuid }}">{{ main_article.headline }}</a></h3>
-            <p><b>{{ main_article.byline }} | {{ main_article.publish_at|date }}</b></p>
-            <p>{{ main_article.promo }}</p>
+            <div class="headline"><a href="/detail/{{ main_article.uuid }}">{{ main_article.headline }}</a></div>
+            <div class="byline">{{ main_article.byline }} | {{ main_article.publish_at|date }}</div>
+            <div class="promo">{{ main_article.promo }}</div>
         </div>
       </div>
     </div>
@@ -21,8 +26,8 @@
         {% for sub_article in sub_article_list %}
           <div class="col-md-4">
               <div style="height: 300px"><img class="img-fluid" src="{{ sub_article.image_url }}"></div>
-              <h3><a href="/detail/{{ sub_article.uuid }}">{{ sub_article.headline }}</a></h3>
-              <p>{{ sub_article.promo }}</p>
+              <div class="sub-headline"><a href="/detail/{{ sub_article.uuid }}">{{ sub_article.headline }}</a></div>
+              <div class="sub-promo">{{ sub_article.promo }}</div>
           </div>
         {% endfor %}
       </div>

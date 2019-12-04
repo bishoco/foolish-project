@@ -6,11 +6,14 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 from django.utils.html import strip_tags
 
-from .models import Article, Comment
+from .models import Article, Comment, ContentConfig
 from .utils import *
 
 def index(request):
-    slug = "10-promise" #move this slug to db config table
+    #pull the main article slug from the ContentConfig table
+    #It didn't feel right to hard code "10-promise" so I created a 
+    #config table that could be updated in the admin
+    slug = ContentConfig.objects.get(key = "main-article-slug").value
     sub_article_count = 3 #number of articles listed at the bottom of the main page
 
     article_list = get_articles_from_api()
