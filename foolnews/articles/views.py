@@ -39,6 +39,7 @@ def detail(request, uuid):
     if not raw_article:
         raise Http404("Article not found")
 
+    #list of instruments used to filter stock list
     instruments = raw_article.get("instruments")
     
     article = convert_raw_article_to_article(raw_article)
@@ -56,12 +57,20 @@ def detail(request, uuid):
 def comment(request, uuid):
     comment = Comment(
         article_uuid = uuid,
-        # Added strip tags to prevent people injecting HTML
+        # Added strip tags to prevent people from injecting HTML
         comment_text = strip_tags(request.POST['comment_text'])
     )
     comment.save()
     return HttpResponseRedirect(reverse('articles:detail', args=(uuid,)))
 
+def search(request):
+    search_text = request.POST['search_text']
+    
+    article_list = get_articles_from_api()
+    results = search_articles (article_list, search_text)
+    context = {'results': results, 'search_text': search_text}
+
+    return render(request, 'articles/search_results.html', context)
 
 
 

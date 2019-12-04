@@ -74,3 +74,15 @@
 .stock-change-up {
     color: green;
 }
+.search-results-header {    
+    font-weight: bold;
+    font-size: 18px;
+}
+.search-results-text {  
+    font-size: 18px;
+}
+.search-results { 
+    font-weight:bold;
+    font-size: 16px;
+    margin-bottom: 8px;
+}

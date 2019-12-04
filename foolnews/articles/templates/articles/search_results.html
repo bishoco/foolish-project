@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'articles/style.css' %}">
+
+    <div style="min-height: 500px;" class="container">
+        <div><span class="search-results-header">Search results for:</span> 
+            <span class="search-results-text">{{ search_text }}</span>
+        </div> 
+        <hr>
+        {% if results %}
+            {% for result in results %}
+                <div class="search-results"><a href="/detail/{{ result.uuid }}">{{ result.headline }}</a></div>    
+            {% endfor %}
+        {% else %}
+            <div class="search-results">No results found</div>
+        {% endif %}
+    </div>
+
+{% endblock content %}

@@ -3,7 +3,9 @@ from datetime import datetime
 
 from .models import Article
 
-## Article Utils ##
+#### Article Utils ####
+
+#Pulls article list from json file
 def get_articles_from_api():    
     json_data = open('data/content_api.json', encoding='utf-8')   
     content_api = json.load(json_data) # deserialises it
@@ -13,6 +15,7 @@ def get_articles_from_api():
 
     return raw_article_list;
 
+#returns the article that has the uuid passed in
 def get_article_by_uuid(article_list, uuid):
     for article in article_list:
         if (article.get("uuid") == uuid):
@@ -66,7 +69,9 @@ def convert_raw_article_to_article(raw_article):
         instruments = raw_article.get("instruments")
     )
 
-## Stock Utils ##
+#### Stock Utils ####
+
+#Pulls stock quote list from json file
 def get_stocks_from_api():    
     json_data = open('data/quotes_api.json', encoding='utf-8')   
     raw_stock_list = json.load(json_data) # deserialises it
@@ -86,3 +91,16 @@ def filter_stock_list_by_instruments(stock_list, instruments):
                 break
     
     return filtered_stock_list;
+
+#### Search Utils ####
+
+#filters article list by the search text
+#This is a rather crude search. Using some kind of search library
+#or implementing a robust search method would make sense
+#in the long term.
+def search_articles (article_list, search_text):
+    filtered_article_list = []
+    for raw_article in article_list:
+        if (search_text.upper() in raw_article.get("headline").upper() or search_text.upper() in raw_article.get("body").upper()):
+            filtered_article_list.append(convert_raw_article_to_article(raw_article))
+    return filtered_article_list;
