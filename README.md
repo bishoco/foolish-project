@@ -38,7 +38,7 @@ _Search function_
 * articles - This is the app folder and where the core source code is
 * data - This is where the API json files are stored
 * foolnews - This is project folder
-* wireframe - the original wireframes for the project
+* auto-deploy - auto deploy the project locally. See instructions below.
 
 **Running locally**
 This project can be cloned and run locally. Python and Django need to be installed. Execute these commands in the project root:
