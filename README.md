@@ -9,6 +9,14 @@ I created User Stories and Acceptance Criteria for this project. That can be see
 
 I also created a task board which helped keep track of what I was doing (and my sanity). It can be seen here: https://github.com/bishoco/foolish-project/projects/1
 
+**Features**
+Main page 
+* Displays a main article
+*The main article is the first article with the slug=10-promise. (This is driven via the db table ContentConfig where key = main-article-slug which can be changed in the admin)
+* Three articles below.
+
+Detailed Article page
+
 **Technical Specs**
 * Django 2.2.7
 * Python 3.8.0
