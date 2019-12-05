@@ -37,3 +37,16 @@ _Search function_
 * data - This is where the API json files are stored
 * foolnews - This is project folder
 * wireframe - the original wireframes for the project
+
+**Running locally**
+This project can be cloned and run locally. Python and Django need to be installed. Execute these commands in the project root:
+* python manage.py migrate
+* python manage.py runserver
+* open the site at http://127.0.0.1:8000/
+
+**Auto Deploy**
+I created a batch script that creates a django project, installs the app, and gets the server running locally. It contains a tar of my app and installs it to the newly created django project. It's in the auto-deploy directory of this project. 
+* run the foolnews-deploy.bat
+* open the site at http://127.0.0.1:8000/
+_Note: this installs my django-articles app to your user directory. To remove the app from your user directory run uninstall.bat
+
