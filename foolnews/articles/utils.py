@@ -7,7 +7,7 @@ from .models import Article
 
 #Pulls article list from json file
 def get_articles_from_api():    
-    json_data = open('data/content_api.json', encoding='utf-8')   
+    json_data = open('articles/static/articles/content_api.json', encoding='utf-8')   
     content_api = json.load(json_data) # deserialises it
     raw_article_list = content_api.get("results")
 
@@ -73,7 +73,7 @@ def convert_raw_article_to_article(raw_article):
 
 #Pulls stock quote list from json file
 def get_stocks_from_api():    
-    json_data = open('data/quotes_api.json', encoding='utf-8')   
+    json_data = open('articles/static/articles/quotes_api.json', encoding='utf-8')   
     raw_stock_list = json.load(json_data) # deserialises it
     json_data.close()
 
