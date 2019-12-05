@@ -9,6 +9,8 @@ I created User Stories and Acceptance Criteria for this project. That can be see
 
 I also created a task board which helped keep track of what I was doing (and my sanity). It can be seen here: https://github.com/bishoco/foolish-project/projects/1
 
+I ran out of time to get this deployed someplace online (like heroku). I'll continue working on that. There are instructions at the bottom of this page to get the project running locally. 
+
 **Features**
 
 _Main page_
