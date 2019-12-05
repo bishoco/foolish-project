@@ -9,15 +9,13 @@ I created User Stories and Acceptance Criteria for this project. That can be see
 
 I also created a task board which helped keep track of what I was doing (and my sanity). It can be seen here: https://github.com/bishoco/foolish-project/projects/1
 
+**Technical Specs**
+* Django 2.2.7
+* Python 3.8.0
+* sqlite database
 
-
-##Technical Specs
-Django 2.2.7
-Python 3.8.0
-sqlite database
-
-##Project Layout
-articles - This is the name of the app and where the core source code is
-data - This is where the API json files are stored
-foolnews - This is the name of the project
-wireframe - the original wireframes for the project
+**Project Layout**
+* articles - This is the app folder and where the core source code is
+* data - This is where the API json files are stored
+* foolnews - This is project folder
+* wireframe - the original wireframes for the project
