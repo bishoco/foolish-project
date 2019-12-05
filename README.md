@@ -51,5 +51,5 @@ I created a batch script that creates a django project, installs the app, and ge
 * run the foolnews-deploy.bat
 * open the site at http://127.0.0.1:8000/
 
-_Note: this installs my django-articles app to your user directory. To remove the app from your user directory run uninstall.bat
+_Note: this installs my django-articles app to your user directory. To remove the app from your user directory run uninstall.bat_
 
