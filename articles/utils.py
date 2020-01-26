@@ -69,29 +69,6 @@ def convert_raw_article_to_article(raw_article):
         instruments = raw_article.get("instruments")
     )
 
-#### Stock Utils ####
-
-#Pulls stock quote list from json file
-def get_stocks_from_api():    
-    json_data = open('data/quotes_api.json', encoding='utf-8')   
-    raw_stock_list = json.load(json_data) # deserialises it
-    json_data.close()
-
-    return raw_stock_list;
-
-#filters a list of stocks based on the list of instruments passed in
-#this compares instrument.symbol to stock.Symbol
-#there is probably a more elegant way to do this in python, but this is good enough for now
-def filter_stock_list_by_instruments(stock_list, instruments):
-    filtered_stock_list = []
-    for instrument in instruments:
-        for stock in stock_list:
-            if (instrument.get("symbol") == stock.get("Symbol")):
-                filtered_stock_list.append(stock)
-                break
-    
-    return filtered_stock_list;
-
 #### Search Utils ####
 
 #filters article list by the search text

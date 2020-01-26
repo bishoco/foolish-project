@@ -1,0 +1,24 @@
+.stock-header{
+    font-size: 22px;
+    margin-bottom: 4px;
+    color: cornflowerblue;
+    font-weight: 400;
+
+}
+.stock-container {
+    margin-bottom: 8px;
+}
+.stock-company {
+    font-weight: bold;
+    font-size: 18px;
+}
+.stock-info {
+    color: rgb(47, 90, 119);
+    font-weight: bold;
+}
+.stock-change-down {
+    color: red;
+}
+.stock-change-up {
+    color: green;
+}

@@ -1,7 +1,9 @@
 {% load humanize %}
 {% load static %}
 
-<script src="{% static 'articles/stocks.js' %}"></script>
+<link rel="stylesheet" type="text/css" href="{% static 'stocks/style.css' %}">
+<script src="{% static 'stocks/stocks.js' %}"></script>
+
 <div class="stock-header">Stocks</div>
 <div id="stock-list-container">
     {% for stock in stock_list %}

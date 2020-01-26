@@ -3,6 +3,7 @@
 {% block content %}
 
 {% load static %}
+{% load showstocks %}
 
     <link rel="stylesheet" type="text/css" href="{% static 'articles/style.css' %}">
     <script src="{% static 'articles/articles.js' %}"></script>
@@ -18,7 +19,7 @@
           
           <div class="col-md-3">
             <hr>
-            {% include "articles/stock.html" %} 
+            {% show_stocks instruments %}
             <hr>
             <div class="detail-readmore-header">Read More</div>
             {% for article in read_more_list %}

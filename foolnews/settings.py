@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'articles.apps.ArticlesConfig',
+    'stocks.apps.StocksConfig',
     'django.contrib.humanize',
     'django.contrib.admin',
     'django.contrib.auth',
