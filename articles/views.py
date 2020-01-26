@@ -57,15 +57,12 @@ class ArticleDetailView(TemplateView):
         
         article = convert_raw_article_to_article(raw_article)
 
-        stock_list = get_stocks_from_api()
-        stock_list = filter_stock_list_by_instruments(stock_list, instruments)
-
         comment_list = Comment.objects.filter(article_uuid=uuid).order_by('-comment_date')
 
         read_more_list = get_sub_articles(article_list, 3, '')
 
         context['article'] = article
-        context['stock_list'] = stock_list
+        context['instruments'] = instruments
         context['comment_list'] = comment_list
         context['read_more_list'] = read_more_list
         return context
