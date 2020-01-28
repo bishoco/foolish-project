@@ -27,7 +27,7 @@ _Search function_
 * Simple search function that displays search results
 
 **Technical Specs**
-* Django 2.2.7
+* Django 3.0.2
 * Python 3.8.0
 * sqlite database
 * bootstrap 4.4.1
