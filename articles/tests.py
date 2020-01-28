@@ -19,11 +19,11 @@ class ContentApiTests(TestCase):
         article_list = get_articles_from_api()
 
         main_article = get_main_article(article_list, slug)
-        self.assertEquals(main_article.uuid, main_article_uuid)
+        self.assertEqual(main_article.uuid, main_article_uuid)
 
         first_article = get_main_article(article_list, "bad slug")
         first_article_uuid = "f52c15f2-c5a9-11e7-8889-0050569d4be0"
-        self.assertEquals(first_article.uuid, first_article_uuid)
+        self.assertEqual(first_article.uuid, first_article_uuid)
     
     def test_get_sub_articles(self):
         article_list = get_articles_from_api()
@@ -31,10 +31,10 @@ class ContentApiTests(TestCase):
         count = 3;
 
         sub_article_list = get_sub_articles (article_list, count, main_article_uuid)
-        self.assertEquals(len(sub_article_list), count)
+        self.assertEqual(len(sub_article_list), count)
         
         filtered_list = [x for x in sub_article_list if x.uuid == main_article_uuid]
-        self.assertEquals(len(filtered_list), 0)
+        self.assertEqual(len(filtered_list), 0)
     
     def test_convert_raw_article_to_article(self):
         slug = "10-promise"
@@ -45,6 +45,6 @@ class ContentApiTests(TestCase):
         article_list = get_articles_from_api()
         article = get_main_article(article_list, slug)
         
-        self.assertEquals(article.uuid, main_article_uuid)
-        self.assertEquals(article.byline, byline)
-        self.assertEquals(article.image_url, image_url)
+        self.assertEqual(article.uuid, main_article_uuid)
+        self.assertEqual(article.byline, byline)
+        self.assertEqual(article.image_url, image_url)
