@@ -1,5 +1,7 @@
-from django.test import TestCase
+from django.test import TestCase, Client
+from django.urls import reverse
 from .utils import *
+
 
 class ContentApiTests(TestCase):
     def test_article_with_slug(self):
@@ -48,3 +50,24 @@ class ContentApiTests(TestCase):
         self.assertEqual(article.uuid, main_article_uuid)
         self.assertEqual(article.byline, byline)
         self.assertEqual(article.image_url, image_url)
+
+class ArticlesTests(TestCase):
+    def test_index(self):
+        response = self.client.get(reverse('articles:index'))        
+        self.assertEqual(response.status_code, 200)
+
+    def test_detail(self):
+        slug = "10-promise"
+        article_list = get_articles_from_api()
+        article = get_main_article(article_list, slug)
+        response = self.client.get(reverse('articles:detail', args=(article.uuid,)))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "Barrick")
+
+    def test_detail_404(self):
+        response = self.client.get(reverse('articles:detail', args=("fake_uuid",)))        
+        self.assertEqual(response.status_code, 404)
+
+    def test_search(self):
+        response = self.client.post(reverse('articles:search'), {'search_text': 'test'})
+        self.assertEqual(response.status_code, 200)

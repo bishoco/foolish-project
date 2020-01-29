@@ -7,3 +7,4 @@ from .templatetags.showstocks import *
 class StockApiTests(TestCase):
     def test_get_stocks_from_api(self):
         stock_list = get_stocks_from_api()
+        self.assertGreater(len(stock_list), 0)
