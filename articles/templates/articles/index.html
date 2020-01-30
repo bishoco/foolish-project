@@ -13,7 +13,7 @@
           <img class="img-fluid" src="{{ main_article.image_url }}">
         </div>
         <div class="col-md-6">
-            <div class="headline"><a href="/detail/{{ main_article.uuid }}">{{ main_article.headline }}</a></div>
+            <div class="headline"><a href="{% url 'articles:detail' main_article.uuid %}">{{ main_article.headline }}</a></div>
             <div class="byline">{{ main_article.byline }} | {{ main_article.publish_at|date }}</div>
             <div class="promo">{{ main_article.promo }}</div>
         </div>
@@ -26,7 +26,7 @@
         {% for sub_article in sub_article_list %}
           <div class="col-md-4">
               <div style="height: 300px"><img class="img-fluid" src="{{ sub_article.image_url }}"></div>
-              <div class="sub-headline"><a href="/detail/{{ sub_article.uuid }}">{{ sub_article.headline }}</a></div>
+              <div class="sub-headline"><a href="{% url 'articles:detail' sub_article.uuid %}">{{ sub_article.headline }}</a></div>
               <div class="sub-promo">{{ sub_article.promo }}</div>
           </div>
         {% endfor %}

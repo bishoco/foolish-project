@@ -23,7 +23,7 @@
             <hr>
             <div class="detail-readmore-header">Read More</div>
             {% for article in read_more_list %}
-                <div class="detail-readmore"><a href="/detail/{{ article.uuid }}">{{ article.headline }}</a></div> 
+                <div class="detail-readmore"><a href="{% url 'articles:detail' article.uuid %}">{{ article.headline }}</a></div> 
             {% endfor %}
           </div>
         </div>
