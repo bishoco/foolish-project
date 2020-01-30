@@ -4,7 +4,7 @@ from django.db import migrations, models
 
 #this initializes the main-article-slug to be 10-promise
 def initialize_slug(apps, schema_editor):
-    # We can't import the Person model directly as it may be a newer
+    # We can't import the ContentConfig model directly as it may be a newer
     # version than this migration expects. We use the historical version.
     ContentConfig = apps.get_model('articles', 'ContentConfig')
     content_config = ContentConfig(
