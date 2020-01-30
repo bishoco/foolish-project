@@ -16,12 +16,15 @@ def get_stocks_from_api():
     raw_stock_list = json.load(json_data) # deserialises it
     json_data.close()
 
-    return raw_stock_list;
+    return raw_stock_list
 
 #filters a list of stocks based on the list of instruments passed in
 #this compares instrument.symbol to stock.Symbol
 #there is probably a more elegant way to do this in python, but this is good enough for now
 def filter_stock_list_by_instruments(stock_list, instruments):
+    if (len(instruments) == 0):
+        return stock_list
+
     filtered_stock_list = []
     for instrument in instruments:
         for stock in stock_list:
@@ -29,4 +32,4 @@ def filter_stock_list_by_instruments(stock_list, instruments):
                 filtered_stock_list.append(stock)
                 break
     
-    return filtered_stock_list;
+    return filtered_stock_list
