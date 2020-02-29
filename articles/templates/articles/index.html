@@ -16,6 +16,7 @@
             <div class="headline"><a href="{% url 'articles:detail' main_article.uuid %}">{{ main_article.headline }}</a></div>
             <div class="byline">{{ main_article.byline }} | {{ main_article.publish_at|date }}</div>
             <div class="promo">{{ main_article.promo }}</div>
+            <div><a href="{% url 'articles:detail' main_article.uuid %}">Read More >></a></div>
         </div>
       </div>
     </div>
@@ -28,6 +29,7 @@
               <div style="height: 300px"><img class="img-fluid" src="{{ sub_article.image_url }}"></div>
               <div class="sub-headline"><a href="{% url 'articles:detail' sub_article.uuid %}">{{ sub_article.headline }}</a></div>
               <div class="sub-promo">{{ sub_article.promo }}</div>
+              <div><a href="{% url 'articles:detail' sub_article.uuid %}">Read More >></a></div>
           </div>
         {% endfor %}
       </div>

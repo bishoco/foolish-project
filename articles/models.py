@@ -12,6 +12,7 @@ class Article(models.Model):
     byline = models.CharField(max_length=200)
     image_url = models.CharField(max_length=500)
     instruments = models.CharField(max_length=500)
+    pitch_text = models.TextField()
     def __str__(self):
         return self.headline
 

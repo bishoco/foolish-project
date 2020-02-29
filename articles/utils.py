@@ -66,7 +66,8 @@ def convert_raw_article_to_article(raw_article):
         publish_at = datetime.fromisoformat(raw_article.get("publish_at").replace("Z", "+00:00")),
         byline = raw_article.get("byline"),
         image_url = raw_article.get("images")[0].get("url"),
-        instruments = raw_article.get("instruments")
+        instruments = raw_article.get("instruments"),
+        pitch_text = raw_article.get("pitch").get("text")
     )
 
 #### Search Utils ####

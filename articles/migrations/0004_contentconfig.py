@@ -9,7 +9,7 @@ def initialize_slug(apps, schema_editor):
     ContentConfig = apps.get_model('articles', 'ContentConfig')
     content_config = ContentConfig(
         key = 'main-article-slug',
-        value = '10-promise'
+        value = 'msn'
     )
     content_config.save()
 
